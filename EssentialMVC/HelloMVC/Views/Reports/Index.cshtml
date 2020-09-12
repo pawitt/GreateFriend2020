@@ -1,0 +1,48 @@
+﻿<h3>Sales by Category Reports</h3>
+
+<select id="ddl" asp-items="@ViewBag.CategoryList">
+</select>
+
+    <select id="ddl"></select>
+
+    <a id="download" class="btn btn-outline-info bordor-0">
+        <i class="fa fa-download"></i>Download Excel
+    </a>
+
+
+<div id="output" class="mt-2"></div>
+
+@section Scripts {
+<script>
+    /*
+    $('#ddl').change(async function () {
+        let name = $('#ddl').val();
+        let url = '/reports/SalesByCategory?c=' + name;
+
+        let s = await $.get(url);
+        $('#output').html(s);
+    });*/
+
+    fn1();
+
+    $('#ddl').change(fn1);
+    //$('a.btnDelete').click(fn2);
+    $('#output').on('click','a.btnDelete',fn2);
+
+    async function fn1() {
+        let name = $('#ddl').val();
+        let url = '/reports/SalesByCategory?c=' + name;
+        let url2 = '/reports/download?c=' + name;
+        $('a#download').attr('href', url2);
+
+        let s = await $.get(url);
+        $('#output').html(s);
+    }
+    function fn2() {
+        const name = $(this).parent().parent().children('td:first-child').text();
+
+        alert(`You are about to delete ${name}`);
+    }
+
+</script>
+}

@@ -1,0 +1,91 @@
+﻿@using HelloMVC.Controllers
+@model Machine
+
+<h3>@Model.Name (@Model.Status)</h3>
+
+@if (TempData["Error"]!=null)
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <i class="fa fa-exclamation-circle fa-2x fa-fw fa-spin"></i>
+        
+        @TempData["Error"]
+    <div>
+        <button id="btn1">spin</button>
+        <button id="btn2">stop</button>
+    </div>
+
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+<div class="d-flex justify-content-between p-2 border rounded shadow-sm">
+
+    <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" id="customSwitch1" checked="@(Model.Status==MachineStatus.On)">
+        <label class="custom-control-label" for="customSwitch1">@Model.Status</label>
+    </div>
+
+    @*<form class="mb-2" asp-controller="Machines" asp-action="@nameof(MachinesController.TurnOn)" method="post">
+            <div class="btn-group">
+                <button type="submit" disabled="@(Model.Status == MachineStatus.On )" class="btn btn-sm btn-outline-info">Turn ON</button>
+                <button type="submit" class="btn btn-sm btn-outline-info" asp-action="turnoff">Turn OFF</button>
+            </div>
+        </form>*@
+
+    @section Scripts {
+        <script>
+            // 1.$(selector).method();
+            // 2.$(selector).event(function)
+            $('#btn1').click(function () {
+                $('div.alert i.fa').addClass('fa-spin');
+            });
+            $('#btn2').click(function () {
+                $('div.alert i.fa').removeClass('fa-spin');
+            });
+
+            $('#customSwitch1').change(fn1);    // # is id
+            function fn1() {
+                let checked = $(this).is(':checked');
+                let url = '';
+
+                if (checked) {
+                    url = '/Machines/TurnOn/@Model.Id';
+                } else {
+                    url = '/Machines/TurnOff/@Model.Id';
+                }
+                $.post(url).then(function () {
+                    // callback function
+                    // claa after post
+                    window.location = '/Machines/Index/@Model.Id';
+                });
+
+                console.log(checked);
+            }
+        </script>
+    }
+
+    <h4><span class="badge badge-secondary">@Model.Status</span></h4>
+</div>
+
+<div class="d-flex justify-content-between p-2 border rounded shadow-sm">
+    @*<form action="~/Machines/InsertCoin" method="post">*@
+    <form asp-controller="Machines"
+          asp-action="InsertCoin" 
+          asp-route-id="@Model.Id"
+          method="post">
+        <button type="submit" class="btn btn-outline-info" name="amount" value="1">
+            <i class="fa fa-dollar"> 1</i>
+        </button>
+        <button type="submit" class="btn btn-outline-info" name="amount" value="5">5</button>
+        <button type="submit" class="btn btn-outline-info" name="amount" value="10">10</button>
+
+        @if (Model.Total > 0)
+        {
+            <button type="submit" class="btn btn-outline-danger" asp-action="Cancel" >Cancel</button>
+        }
+
+    </form>
+    <h4><span class="badge badge-secondary">@Model.Total Bath</span></h4>
+</div>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<HelloMVC.Northwind.SalesBYCategoryResult>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Total Purchase</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.TotalPurchase.ToString("n2")</td>
+                <td><a class="btnDelete btn btn-outline-danger">Delete</a> </td>
+            </tr>
+        }
+    </tbody>
+</table>
