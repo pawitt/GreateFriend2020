@@ -1,0 +1,5 @@
+﻿//EF command
+
+
+// prompt => D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Services>
+command =>  dotnet ef migrations add update01 -s ..\TradeBooks.Web\TradeBooks.Web.csproj -c AppDb
