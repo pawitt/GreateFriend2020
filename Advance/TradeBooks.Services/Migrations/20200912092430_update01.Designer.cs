@@ -10,7 +10,7 @@ using TradeBooks.Services;
 namespace TradeBooks.Services.Migrations
 {
     [DbContext(typeof(AppDb))]
-    [Migration("20200912090416_update01")]
+    [Migration("20200912092430_update01")]
     partial class update01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,15 +62,16 @@ namespace TradeBooks.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("OwnerUnitHolderId")
+                    b.Property<string>("OwnerId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(12)");
+                        .HasColumnType("nchar(12)")
+                        .IsFixedLength(true);
 
                     b.HasKey("SubscriptionId");
 
                     b.HasIndex("FundCode");
 
-                    b.HasIndex("OwnerUnitHolderId");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Subscriptions");
                 });
@@ -123,7 +124,7 @@ namespace TradeBooks.Services.Migrations
 
                     b.HasOne("TradeBooks.Models.UnitHolder", "Owner")
                         .WithMany("Subscriptions")
-                        .HasForeignKey("OwnerUnitHolderId")
+                        .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

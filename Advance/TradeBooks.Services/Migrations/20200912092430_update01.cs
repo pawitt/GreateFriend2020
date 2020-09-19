@@ -46,7 +46,7 @@ namespace TradeBooks.Services.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DateUtc = table.Column<DateTime>(nullable: false),
                     FundCode = table.Column<string>(nullable: false),
-                    OwnerUnitHolderId = table.Column<string>(nullable: false),
+                    OwnerId = table.Column<string>(fixedLength: true, nullable: false),
                     Amount = table.Column<decimal>(nullable: false),
                     AllocNAV = table.Column<decimal>(nullable: true),
                     AllocUnits = table.Column<decimal>(nullable: true)
@@ -59,13 +59,14 @@ namespace TradeBooks.Services.Migrations
                         column: x => x.FundCode,
                         principalTable: "Funds",
                         principalColumn: "Code",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Subscriptions_UnitHolders_OwnerUnitHolderId",
-                        column: x => x.OwnerUnitHolderId,
+                        name: "FK_Subscriptions_UnitHolders_OwnerId",
+                        column: x => x.OwnerId,
                         principalTable: "UnitHolders",
                         principalColumn: "UnitHolderId",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                    //onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -74,9 +75,9 @@ namespace TradeBooks.Services.Migrations
                 column: "FundCode");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Subscriptions_OwnerUnitHolderId",
+                name: "IX_Subscriptions_OwnerId",
                 table: "Subscriptions",
-                column: "OwnerUnitHolderId");
+                column: "OwnerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
