@@ -11,19 +11,19 @@ namespace TradeBooks.Web.Areas.ApiV1.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
-    public class FundsController : ControllerBase
+    public class FundsOldController : ControllerBase
     {
-        private readonly App app;
-        public FundsController(App app)
+        private readonly AppDb db;
+        public FundsOldController(AppDb db)
         {
-            this.app = app;
+            this.db = db;
         }
 
         [HttpGet]
         public ActionResult<IEnumerable<Fund>> GetAll()
         {
             // Get /api/v1/funds
-            var items = app.Funds.All().OrderBy(x => x.Code).ToList();
+            var items = db.Funds.ToList();
             return items;
         }
 
@@ -31,7 +31,7 @@ namespace TradeBooks.Web.Areas.ApiV1.Controllers
         public ActionResult<Fund> GetByCode(string code)
         {
             // Get /api/v1/funds
-            var item = app.Funds.Find(code);
+            var item = db.Funds.Find(code);
             //if (item == null) return NotFound();
             if (item == null) return NotFound( new ProblemDetails { Status=404, Title = "funds not fund" , Detail ="funds not fund" } );
             return item;
@@ -45,17 +45,9 @@ namespace TradeBooks.Web.Areas.ApiV1.Controllers
             {
                 return BadRequest();
             }
-
-            try
-            {
-                app.Funds.Add(item);
-                app.SaveChanges();
-                return CreatedAtAction(nameof(GetByCode),new { code=item.Code,item });
-            } catch (Exception ex)
-            {
-                return BadRequest( new ProblemDetails { Detail= ex.Message} );
-            }
-
+            db.Funds.Add(item);
+            db.SaveChanges();
+            return CreatedAtAction(nameof(GetByCode),new { code=item.Code,item });
             //when success
             //1. return 201
             //2. header
@@ -77,7 +69,7 @@ namespace TradeBooks.Web.Areas.ApiV1.Controllers
             }
 
             // manual
-            var fund = app.Funds.Find(code);
+            var fund = db.Funds.Find(code);
 
             if (fund == null)
             {
@@ -86,18 +78,21 @@ namespace TradeBooks.Web.Areas.ApiV1.Controllers
 
             fund.Name = item.Name;
             fund.NAV = item.NAV;
+
             // db.Funds.Update(item);
-            app.SaveChanges();
+
+            db.SaveChanges();
+
             return NoContent();
         }
 
         [HttpDelete("{code}")]
         public ActionResult<Fund> Delete(string code)
         {
-            var fund = app.Funds.Find(code);
+            var fund = db.Funds.Find(code);
             if (fund == null) return NotFound();
-            app.Funds.Remove(fund);
-            app.SaveChanges();
+            db.Funds.Remove(fund);
+            db.SaveChanges();
             return fund;
         }
     }
