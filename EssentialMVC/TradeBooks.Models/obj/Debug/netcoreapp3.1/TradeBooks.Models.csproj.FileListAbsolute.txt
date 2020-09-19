@@ -1,9 +1,9 @@
 D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\bin\Debug\netcoreapp3.1\TradeBooks.Models.deps.json
 D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\bin\Debug\netcoreapp3.1\TradeBooks.Models.dll
 D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\bin\Debug\netcoreapp3.1\TradeBooks.Models.pdb
-D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\obj\Debug\netcoreapp3.1\TradeBooks.Models.csprojAssemblyReference.cache
 D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\obj\Debug\netcoreapp3.1\TradeBooks.Models.AssemblyInfoInputs.cache
 D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\obj\Debug\netcoreapp3.1\TradeBooks.Models.AssemblyInfo.cs
 D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\obj\Debug\netcoreapp3.1\TradeBooks.Models.csproj.CoreCompileInputs.cache
 D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\obj\Debug\netcoreapp3.1\TradeBooks.Models.dll
 D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\obj\Debug\netcoreapp3.1\TradeBooks.Models.pdb
+D:\DataPawit\Coding\GreateFriend2020\EssentialMVC\TradeBooks.Models\obj\Debug\netcoreapp3.1\TradeBooks.Models.csprojAssemblyReference.cache

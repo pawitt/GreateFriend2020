@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.30330.147
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloMVC", "HelloMVC\HelloMVC.csproj", "{76495476-14FC-4E61-AE57-B12C8DF1E2C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBooks.Web", "..\Advance\TradeBooks.Web\TradeBooks.Web.csproj", "{832FD897-3397-44CA-A950-6B6989DC2E8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBooks.Web", "..\Advance\TradeBooks.Web\TradeBooks.Web.csproj", "{832FD897-3397-44CA-A950-6B6989DC2E8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBooks.Services", "..\Advance\TradeBooks.Services\TradeBooks.Services.csproj", "{5E3A8FA5-81F0-4D5C-A518-5AADAA53A92A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBooks.Services", "..\Advance\TradeBooks.Services\TradeBooks.Services.csproj", "{5E3A8FA5-81F0-4D5C-A518-5AADAA53A92A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBooks.Models", "TradeBooks.Models\TradeBooks.Models.csproj", "{442D5DB3-AB0C-4F75-A50C-2BEAF601DE20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeBooks.Models", "TradeBooks.Models\TradeBooks.Models.csproj", "{442D5DB3-AB0C-4F75-A50C-2BEAF601DE20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeBooks.Facts", "..\Advance\TradeBooks.Facts\TradeBooks.Facts.csproj", "{C8A18491-904A-4666-8C0A-74401419776F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{442D5DB3-AB0C-4F75-A50C-2BEAF601DE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{442D5DB3-AB0C-4F75-A50C-2BEAF601DE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{442D5DB3-AB0C-4F75-A50C-2BEAF601DE20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8A18491-904A-4666-8C0A-74401419776F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A18491-904A-4666-8C0A-74401419776F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A18491-904A-4666-8C0A-74401419776F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A18491-904A-4666-8C0A-74401419776F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
