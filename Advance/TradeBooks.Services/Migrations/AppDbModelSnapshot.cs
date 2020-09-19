@@ -60,15 +60,16 @@ namespace TradeBooks.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("OwnerUnitHolderId")
+                    b.Property<string>("OwnerId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(12)");
+                        .HasColumnType("nchar(12)")
+                        .IsFixedLength(true);
 
                     b.HasKey("SubscriptionId");
 
                     b.HasIndex("FundCode");
 
-                    b.HasIndex("OwnerUnitHolderId");
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Subscriptions");
                 });
@@ -121,7 +122,7 @@ namespace TradeBooks.Services.Migrations
 
                     b.HasOne("TradeBooks.Models.UnitHolder", "Owner")
                         .WithMany("Subscriptions")
-                        .HasForeignKey("OwnerUnitHolderId")
+                        .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

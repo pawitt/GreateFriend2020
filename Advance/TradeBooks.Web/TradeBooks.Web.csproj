@@ -21,4 +21,12 @@
     <ProjectReference Include="..\TradeBooks.Services\TradeBooks.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\ApiV1\Data\" />
+    <Folder Include="Areas\ApiV1\Models\" />
+    <Folder Include="Areas\ApiV1\Views\" />
+  </ItemGroup>
+
 </Project>

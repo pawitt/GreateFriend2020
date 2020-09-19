@@ -1,0 +1,113 @@
+﻿<h3>Manage Funds</h3>
+
+<style>
+    tr.list-item {
+        cursor: pointer;
+    }
+    tr.list-item:hover {
+        background-color: greenyellow;
+    }
+</style>
+
+
+<div class="border border-dark rounded my-3 p-3 shadow-sm">
+    <form class="form-inline">
+        <input type="text" class="form-control mb-2 mr-sm-2" id="newCode" placeholder="Code">
+        <input type="text" class="form-control mb-2 mr-sm-2" id="newName" placeholder="Name">
+        <input type="number" class="form-control mb-2 mr-sm-2" id="newNav" style="width: 120px;">
+        <button type="button" id="btnAddFund" class="btn btn-primary mb-2">Add</button>
+    </form>
+</div>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h4>List</h4>
+        <div style="height:400px; overflow-y: scroll">
+            <table id="list" class="table table-hover">
+                <tr>
+                    <td>
+                        <h5>UOBSD</h5>
+                        UOB Sure Daily
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h5>UOBSD</h5>
+                        UOB Sure Daily
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+        
+        
+    </div>
+    <div class="col-md-8">
+        <h4>Detail</h4>
+        <div id="code">>UOBXX</div>
+        <div id="name">>UOB XXX</div>
+        <div class="my-2"> 
+            <span id="nav" class="bg-dark text-light rounded p-1">0.0000</span>
+        </div>
+       
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        loadItems();
+
+        $('#btnAddFund').click(() => {
+            let code = $('#newCode').val();
+            let name = $('#newName').val();
+            let nav = parseFloat($('#newNav').val());
+            let obj = { "code": code, "name": name, "nav": nav };
+            let url = '/api/v1/funds';
+            $.ajax({
+                contentType: 'application/json; charset=utf-8',
+                type: 'POST',
+                url: url,
+                dataType: 'json',
+                data: JSON.stringify(obj)
+            }).then(res => {
+                loadItems();
+            }).catch(err => {
+                console.error(err);
+            });
+        });
+
+        $('#list').on('click', 'tr', function () {
+            let code = $(this).attr('data-fund-code');
+            let url = `/api/v1/funds/${code}`;
+            $.get(url).then(res => {
+                $('#code').text(res.code);
+                $('#name').text(res.name);
+                $('#nav').text(res.nav);
+            });
+        });
+
+
+        function loadItems() {
+            $('#list').empty();
+            let url = '/api/v1/funds';
+            $.get(url).then(function (res) {
+
+
+                res.sort((a, b) => a.nav - b.nav);
+
+                res.forEach(item => {
+                    let tr = $(`<tr class="list-item" data-fund-code="${item.code}">`);
+                    let td = $('<td>');
+                    td.append(`<h5>${item.code} <span class="badge badge-dark">${item.nav}</span></h5>`);
+                    td.append(`<div>${item.name}</div>`);
+                    tr.append(td);
+                    $('#list').append(tr);
+                });
+
+
+            });
+        }
+    </script>
+}

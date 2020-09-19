@@ -25,6 +25,10 @@ namespace TradeBooks.Services
                 .Property(x => x.UnitHolderId)
                 .IsFixedLength(true);
 
+            modelBuilder.Entity<Subscription>()
+                .Property(x => x.OwnerId)
+                .IsFixedLength(true);
+
             // handle enum convert int when save to database
             modelBuilder.Entity<UnitHolder>()
                 .Property(x => x.Gender)

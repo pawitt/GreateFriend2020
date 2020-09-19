@@ -208,3 +208,9 @@ D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\bin\Debug\netcoreapp
 D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\bin\Debug\netcoreapp3.1\TradeBooks.Services.dll
 D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\bin\Debug\netcoreapp3.1\TradeBooks.Services.pdb
 D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\bin\Debug\netcoreapp3.1\TradeBooks.Models.pdb
+D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Funds\Index.cshtml.g.cs
+D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_Layout.cshtml.g.cs
+D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_LoginPartial.cshtml.g.cs
+D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewStart.cshtml.g.cs
+D:\DataPawit\Coding\GreateFriend2020\Advance\TradeBooks.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
